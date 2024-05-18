@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Energy Consumption Plot</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Energy Consumption Plot</h1>
+      <div id="plot"></div>
+      <script>
+        var plotData = {{ plot_data|tojson }};
+        var data = [{
+          x: plotData.time,  // Adjust the keys based on your JSON structure
+          y: plotData.values,  // Adjust the keys based on your JSON structure
+          type: 'scatter'
+        }];
+        Plotly.newPlot('plot', data);
+      </script>
+    </div>
+  </body>
+</html>
